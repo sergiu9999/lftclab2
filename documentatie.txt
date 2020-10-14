@@ -1,0 +1,6 @@
+We implement The Symbol Table in python by using bynary tree.
+SymbolTable
+Insert(token)
+Search(token)
+We compare the asci code to determine which token has a greater value.
+
