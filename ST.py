@@ -1,44 +1,70 @@
-class Node: 
-  
+class node:
+    def __init__(self,value=None):
+        self.value=value
+        self.right=None
+        self.left=None
 
-    def __init__(self, key): 
-        self.key = key  
-        self.left = None
-        self.right = None
-  
-  
-def search(node,key):
+class BST:
+    def __init__(self):
+        self.root=None
 
-  if key == node.key:
-    return True
+    def insert(self,value):
+        if self.root==None:
+            self.root=node(value)
+        else:
+            self._insert(value,self.root)
 
-  if key < node.key:
-      
-      return search(node.left, key) 
-  else:
-    
-      return search(node.right, key) 
-  return False 
+    def _insert(self,value,current):
+        if value<current.value:
+            if current.left==None:
+                current.left=node(value)
+            else:
+                self._insert(value,current.left)
+        elif value>current.value:
+            if current.right==None:
+                current.right=node(value)
+            else:
+                self._insert(value,current.right)
+        else:
+            print("Value already in tree!")
 
-def insert( node, key): 
-    if node is None: 
-        return Node(key) 
-    if key == node.key:
-      return node
-    if key < node.key: 
-        node.left = insert(node.left, key) 
-    else: 
-        node.right = insert(node.right, key) 
+    def print_tree(self):
+        if self.root!=None:
+            self._print_tree(self.root)
 
-    return node 
-  
-
-  
+    def _print_tree(self,current):
+        if current!=None:
+            self._print_tree(current.left)
+            print(str(current.value))
+            self._print_tree(current.right)
 
 
-root = None
-root = insert(root, "A")
-root = insert(root, "A")
-root = insert(root, "B")
-root = insert(root, "C")
-print(search(root,"C")) 
+    def search(self,value):
+        if self.root!=None:
+            return self._search(value,self.root)
+        else:
+            return False
+
+    def _search(self,value,current):
+
+        if value==current.value:
+            return True
+        elif value<current.value and current.left!=None:
+            return self._search(value,current.left)
+        elif value>current.value and current.right!=None:
+            return self._search(value,current.right)
+        return False
+
+
+ST = BST()
+ST.insert("A")
+ST.insert("A")
+ST.insert("B")
+ST.insert("C")
+ST.insert("D")
+ST.insert("E")
+ST.insert("F")
+ST.print_tree()
+print(ST.search("A"))
+print(ST.search("F"))
+print(ST.search("Z"))
