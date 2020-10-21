@@ -1,0 +1,7 @@
+"NO" 13
+"YES" 9
+0 6
+2 4
+i 1
+isprime 2
+number 0

@@ -1,0 +1,8 @@
+Var int:number; int:i; bool:isprime;
+isprime=true;
+input(number);
+for(i=2;i<=number/2;i++)
+ if(number%i==0)isprime=false;
+if(isprime==true)print("YES");
+else print("NO");
+end.

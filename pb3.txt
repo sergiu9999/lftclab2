@@ -1,0 +1,10 @@
+Var int:0n; int:i; int[50] v; int sum;
+sum=0;
+input(number);
+for(i=0;i<=number-1;i++)
+input(v[i]);
+for(i=0;i<=number-1;i++)
+sum=sum+v[i];
+print("The sum is:");
+print(sum);
+end.
